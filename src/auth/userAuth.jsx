@@ -35,6 +35,7 @@ export const AuthProvider = ({children}) => {
     const refreshAuth = async() => {
         try {
             const response = await axios.get(`${apiBaseUrl}/api/user/auth`, {withCredentials:true});
+            console.log(response.data);
             const {user, token} = response.data;
             login(user, token);
             console.log({user, token})
@@ -44,7 +45,7 @@ export const AuthProvider = ({children}) => {
         } finally {
             setLoading(false);
         }
-    }
+    };
     
     useEffect(()=>{
         const initAuth = async() => {
