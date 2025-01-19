@@ -31,8 +31,6 @@ export const AuthProvider = ({children}) => {
         localStorage.removeItem("user");
         localStorage.removeItem("accessToken");
     }
-    const isAuthenticated = !!user && !!token;
-
 
     const refreshAuth = async() => {
         try {
@@ -61,6 +59,8 @@ export const AuthProvider = ({children}) => {
         };
         initAuth();
     },[])
+
+    const isAuthenticated = !!user && !!token;
 
     return (
         <AuthContext.Provider value={{user, token, isAuthenticated,loading, login, logout, refreshAuth}}>
