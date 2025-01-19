@@ -10,6 +10,8 @@ app.listen(process.env.PORT || 3002, () => {
   console.log(`running on port ${process.env.PORT || 3002}`);
 });
 
+const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname, "/dist")));
 
 app.get("*", (req, res) => {
