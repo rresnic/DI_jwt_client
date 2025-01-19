@@ -39,11 +39,12 @@ export const AuthProvider = ({children}) => {
             const response = await axios.get(`${apiBaseUrl}/api/user/auth`, {withCredentials:true});
             const {user, token} = response.data;
             login(user, token);
+            console.log({user, token})
         } catch (error) {
             console.log(error);
             logout();
         } finally {
-            setLoading("false");
+            setLoading(false);
         }
     }
     
